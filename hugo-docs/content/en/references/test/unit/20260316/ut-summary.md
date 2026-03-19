@@ -36,6 +36,15 @@
 | tests/test_blas_ops.py                 | test_accuracy_vdot                                       |    144 |       0 |      144 |
 | tests/test_blas_ops.py                 | test_accuracy_dot_tensor_tensor                          |      9 |       0 |        9 |
 | tests/test_blas_ops.py                 | test_accuracy_addr                                       |      1 |       0 |        1 |
+| tests/test_attention_ops.py            | test_sdpa_legacy                                         |     96 |       0 |       96 |
+| tests/test_attention_ops.py            | test_sdpa_square_qk_even_mn                              |     16 |       0 |       16 |
+| tests/test_attention_ops.py            | test_sdpa_nonsquare_qk                                   |     24 |       0 |       24 |
+| tests/test_attention_ops.py            | test_flash_attn_varlen_func                              |    216 |       0 |      216 |
+| tests/test_attention_ops.py            | test_flash_attn_varlen_func_swap_qg                      |      4 |       0 |        4 |
+| tests/test_attention_ops.py            | test_concat_and_cache_mla                                |      3 |       0 |        3 |
+| tests/test_attention_ops.py            | test_reshape_and_cache                                   |     72 |       0 |       72 |
+| tests/test_attention_ops.py            | test_reshape_and_cache_flash                             |     72 |       0 |       72 |
+| tests/test_attention_ops.py            | test_flash_mla                                           |      4 |       0 |        4 |
 | tests/test_reduction_ops.py            | test_accuracy_amax                                       |      1 |       0 |        1 |
 | tests/test_reduction_ops.py            | test_accuracy_argmax                                     |      8 |      12 |       20 |
 | tests/test_reduction_ops.py            | test_accuracy_argmin                                     |     12 |       0 |       12 |
@@ -182,15 +191,6 @@
 | tests/test_unary_pointwise_ops.py      | test_accuracy_ceil                                       |      3 |       0 |        3 |
 | tests/test_unary_pointwise_ops.py      | test_accuracy_ceil_                                      |      3 |       0 |        3 |
 | tests/test_unary_pointwise_ops.py      | test_accuracy_ceil_out                                   |      3 |       0 |        3 |
-| tests/test_attention_ops.py            | test_sdpa_legacy                                         |     96 |       0 |       96 |
-| tests/test_attention_ops.py            | test_sdpa_square_qk_even_mn                              |     16 |       0 |       16 |
-| tests/test_attention_ops.py            | test_sdpa_nonsquare_qk                                   |     24 |       0 |       24 |
-| tests/test_attention_ops.py            | test_flash_attn_varlen_func                              |    216 |       0 |      216 |
-| tests/test_attention_ops.py            | test_flash_attn_varlen_func_swap_qg                      |      4 |       0 |        4 |
-| tests/test_attention_ops.py            | test_concat_and_cache_mla                                |      3 |       0 |        3 |
-| tests/test_attention_ops.py            | test_reshape_and_cache                                   |     72 |       0 |       72 |
-| tests/test_attention_ops.py            | test_reshape_and_cache_flash                             |     72 |       0 |       72 |
-| tests/test_attention_ops.py            | test_flash_mla                                           |      4 |       0 |        4 |
 | tests/test_tensor_constructor_ops.py   | test_accuracy_rand                                       |      3 |       0 |        3 |
 | tests/test_tensor_constructor_ops.py   | test_accuracy_randn                                      |      3 |       0 |        3 |
 | tests/test_tensor_constructor_ops.py   | test_accuracy_rand_like                                  |      3 |       0 |        3 |
@@ -366,7 +366,6 @@
 | tests/test_pointwise_type_promotion.py | test_type_promotion_bool_to_long                         |      3 |       0 |        3 |
 | tests/test_general_reduction_ops.py    | test_accuracy_max_int                                    |      0 |       6 |        6 |
 | tests/test_blas_ops.py                 | test_accuracy_bmm_non_contiguous                         |      0 |       1 |        1 |
-| tests/test_reduction_ops.py            | test_topk_softmax                                        |      0 |     144 |      144 |
 | tests/test_attention_ops.py            | test_sdpa_legacy_backward                                |      0 |      96 |       96 |
 | tests/test_attention_ops.py            | test_flash_fwd_nonsquare_qk                              |      0 |      48 |       48 |
 | tests/test_attention_ops.py            | test_flash_fwd_gqa_alibi_softcap                         |      0 |      48 |       48 |
@@ -374,6 +373,7 @@
 | tests/test_attention_ops.py            | test_flash_fwd_swa                                       |      0 |      32 |       32 |
 | tests/test_attention_ops.py            | test_flash_fwd_dropout                                   |      0 |       4 |        4 |
 | tests/test_attention_ops.py            | test_scheduler_metadata_correctness                      |      0 |      32 |       32 |
+| tests/test_reduction_ops.py            | test_topk_softmax                                        |      0 |     144 |      144 |
 | tests/test_norm_ops.py                 | test_accuracy_weightnorm                                 |      0 |       1 |        1 |
 | tests/test_norm_ops.py                 | test_accuracy_weightnorm_interface_backward              |      0 |       1 |        1 |
 | tests/test_special_ops.py              | test_accuracy_grouped_topk                               |      0 |       1 |        1 |
