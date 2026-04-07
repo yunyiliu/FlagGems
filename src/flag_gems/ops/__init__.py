@@ -23,6 +23,7 @@ from flag_gems.ops.arcsinh_ import arcsinh_
 from flag_gems.ops.arctanh_ import arctanh_
 from flag_gems.ops.argmax import argmax
 from flag_gems.ops.argmin import argmin
+from flag_gems.ops.asinh import asinh, asinh_out
 from flag_gems.ops.asinh_ import asinh_
 from flag_gems.ops.atan import atan, atan_
 from flag_gems.ops.attention import (
@@ -73,6 +74,7 @@ from flag_gems.ops.conv3d import conv3d
 from flag_gems.ops.conv_depthwise2d import _conv_depthwise2d
 from flag_gems.ops.copy import copy, copy_
 from flag_gems.ops.cos import cos, cos_
+from flag_gems.ops.cosh import cosh, cosh_
 from flag_gems.ops.count_nonzero import count_nonzero
 from flag_gems.ops.cummax import cummax
 from flag_gems.ops.cummin import cummin
@@ -118,6 +120,7 @@ from flag_gems.ops.fmin import fmin, fmin_out
 from flag_gems.ops.full import full
 from flag_gems.ops.full_like import full_like
 from flag_gems.ops.gather import gather, gather_backward
+from flag_gems.ops.gcd import gcd
 from flag_gems.ops.ge import ge, ge_scalar
 from flag_gems.ops.gelu import gelu, gelu_, gelu_backward
 from flag_gems.ops.get_paged_mqa_logits_metadata import get_paged_mqa_logits_metadata
@@ -143,10 +146,12 @@ from flag_gems.ops.isnan import isnan
 from flag_gems.ops.kron import kron
 from flag_gems.ops.layernorm import layer_norm, layer_norm_backward
 from flag_gems.ops.le import le, le_scalar
+from flag_gems.ops.leaky_relu import leaky_relu, leaky_relu_, leaky_relu_backward
 from flag_gems.ops.lerp import lerp_scalar, lerp_scalar_, lerp_tensor, lerp_tensor_
 from flag_gems.ops.lift_fresh_copy import lift_fresh_copy, lift_fresh_copy_out
 from flag_gems.ops.linspace import linspace
 from flag_gems.ops.log import log
+from flag_gems.ops.log10 import log10, log10_, log10_out
 from flag_gems.ops.log1p_ import log1p_
 from flag_gems.ops.log_sigmoid import log_sigmoid
 from flag_gems.ops.log_softmax import log_softmax, log_softmax_backward
@@ -233,6 +238,7 @@ from flag_gems.ops.repeat_interleave import (
 from flag_gems.ops.replication_pad1d import replication_pad1d, replication_pad1d_out
 from flag_gems.ops.replication_pad3d import replication_pad3d
 from flag_gems.ops.resolve_conj import resolve_conj
+from flag_gems.ops.roll import roll
 from flag_gems.ops.resolve_neg import resolve_neg
 from flag_gems.ops.rms_norm import rms_norm, rms_norm_backward, rms_norm_forward
 from flag_gems.ops.rrelu_with_noise_backward import rrelu_with_noise_backward
@@ -340,7 +346,9 @@ __all__ = [
     "arcsinh_",
     "argmax",
     "argmin",
+    "asinh",
     "asinh_",
+    "asinh_out",
     "atan",
     "atan_",
     "avg_pool2d",
@@ -385,6 +393,8 @@ __all__ = [
     "copy_",
     "cos",
     "cos_",
+    "cosh",
+    "cosh_",
     "count_nonzero",
     "cummax",
     "cummin",
@@ -437,6 +447,7 @@ __all__ = [
     "full_like",
     "gather",
     "gather_backward",
+    "gcd",
     "ge",
     "ge_scalar",
     "gelu",
@@ -475,6 +486,9 @@ __all__ = [
     "layer_norm_backward",
     "le",
     "le_scalar",
+    "leaky_relu",
+    "leaky_relu_",
+    "leaky_relu_backward",
     "lerp_scalar",
     "lerp_scalar_",
     "lerp_tensor",
@@ -483,6 +497,9 @@ __all__ = [
     "lift_fresh_copy_out",
     "linspace",
     "log",
+    "log10",
+    "log10_",
+    "log10_out",
     "log_sigmoid",
     "log_softmax",
     "log_softmax_backward",
@@ -584,6 +601,7 @@ __all__ = [
     "resolve_conj",
     "resolve_neg",
     "rms_norm",
+    "roll",
     "rms_norm_backward",
     "rms_norm_forward",
     "rrelu_with_noise_backward",

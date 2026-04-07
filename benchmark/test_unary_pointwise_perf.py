@@ -55,6 +55,7 @@ forward_operations = [
     ("special_i0e", torch.ops.aten.special_i0e, FLOAT_DTYPES),
     ("logical_not", torch.logical_not, INT_DTYPES + BOOL_DTYPES),
     ("log", torch.log, FLOAT_DTYPES),
+    ("log10", torch.log10, FLOAT_DTYPES),
     ("special_i1", torch.special.i1, FLOAT_DTYPES),
     ("logit", lambda a: torch.logit(a, eps=1e-6), FLOAT_DTYPES),
     # ("triu", torch.triu, FLOAT_DTYPES),  # do not support 1d shapes
@@ -73,8 +74,10 @@ forward_operations = [
     ("sigmoid", torch.sigmoid, FLOAT_DTYPES),
     ("log_sigmoid", torch.nn.functional.logsigmoid, FLOAT_DTYPES),
     ("silu", torch.nn.functional.silu, FLOAT_DTYPES),
+    ("leaky_relu", lambda x: torch.nn.functional.leaky_relu(x), FLOAT_DTYPES),
     # Trigonometric operations
     ("cos", torch.cos, FLOAT_DTYPES),
+    ("cosh", torch.cosh, FLOAT_DTYPES),
     ("sin", torch.sin, FLOAT_DTYPES),
     ("tan", torch.tan, FLOAT_DTYPES),
     ("tanh", torch.tanh, FLOAT_DTYPES),
@@ -136,8 +139,10 @@ forward_inplace_operations = [
     ("sigmoid_", torch.sigmoid_, FLOAT_DTYPES),
     ("sgn_", lambda a: a.sgn_(), FLOAT_DTYPES),
     ("silu_", lambda a: torch.nn.functional.silu(a, inplace=True), FLOAT_DTYPES),
+    ("leaky_relu_", lambda a: torch.nn.functional.leaky_relu_(a), FLOAT_DTYPES),
     # Trigonometric operations
     ("cos_", torch.cos_, FLOAT_DTYPES),
+    ("cosh_", lambda a: a.cosh_(), FLOAT_DTYPES),
     ("sin_", torch.sin_, FLOAT_DTYPES),
     ("sinh_", lambda a: a.sinh_(), FLOAT_DTYPES),
     ("tan_", torch.tan_, FLOAT_DTYPES),
